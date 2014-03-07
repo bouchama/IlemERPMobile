@@ -35,46 +35,64 @@ exports.createListRapportWin = function() {
 		top : '3dp',
 		text : "Nouveau Rapport",
 	});
-	var ajouter = ui.createButton({
-		//title : "ajouter",
+	/*var ajouter = ui.createButton({
+		title : "",
 		left:"70%",
 		width:"25%",
 		top : '-35dp',
 		backgroundImage : '/images/add-icon.png.png'
+	});*/
+	
+	// Create an ImageView.
+	var ajouter = Ti.UI.createImageView({
+		image : '/images/button.png',
+		left:"70%",
+		width:"25%",
+		height :'35dp',
+		top : '-35dp',
 	});
+	
+	
+	var search = Titanium.UI.createSearchBar({
+    showCancel: true,
+    barColor: '#4ec4de',
+    top : '0',
+	height:'35'
+});
 var Recherche = ui.createTextField({
 		top : '3dp',
 		height:'35'
 	});
 	viewAjout.add(nouveauRapportLabel);
 	viewAjout.add(ajouter);
-	viewAjout.add(Recherche);
-	
+	//viewAjout.add(Recherche);
+	viewAjout.add(search);
 var tbl_data = [
-    {title:'Row 1',leftImage:'app-note-icon.png'},
-    {title:'Row 2',leftImage:'app-note-icon.png'},
-    {title:'Row 3',leftImage:'app-note-icon.png'},
-    {title:'Row 4',leftImage:'app-note-icon.png'},
-    {title:'Row 5'},
-    {title:'Row 2'},
-    {title:'Row 3'},
-    {title:'Row 4'},
-    {title:'Row 5'},
-    {title:'Row 1'},
-    {title:'Row 2'},
-    {title:'Row 3'},
-    {title:'Row 4'},
-    {title:'Row 5'},
-    {title:'Row 1'},
-    {title:'Row 2'},
-    {title:'Row 3'},
-    {title:'Row 4'},
-    {title:'Row 5'}
+    {title:'aow 1',image:'\images\button.png'},
+    {title:'bRow 2',image:'\images\button.png'},
+    {title:'cRow 3',image:'\images\button.png'},
+    {title:'Row 4',image:'\images\button.png'},
+    {title:'dRow 5',image:'\images\button.png'},
+    {title:'Row 2',image:'\images\button.png'},
+    {title:'dRow 3',image:'\images\button.png'},
+    {title:'dRow 4',image:'\images\button.png'},
+    {title:'eRow 5',image:'\images\button.png'},
+    {title:'eRow 1',image:'\images\button.png'},
+    {title:'Row 2',image:'\images\button.png'},
+    {title:'rRow 3',image:'\images\button.png'},
+    {title:'Row 4',image:'\images\button.png'},
+    {title:'Row 5',image:'\images\button.png'},
+    {title:'Row 1',image:'\images\button.png'},
+    {title:'Row 2',image:'\images\button.png'},
+    {title:'Row 3',image:'\images\button.png'},
+    {title:'Row 4',image:'\images\button.png'},
+    {title:'Row 5',image:'\images\button.png'}
    
 ];
 // now assign that array to the table's data property to add those objects as rows
 var table = Titanium.UI.createTableView({
     data:tbl_data,
+    search:search,
     backgroundColor:"#FFDAB9",
     font : {
 			fontSize : '14dp',
@@ -83,8 +101,35 @@ var table = Titanium.UI.createTableView({
 
 		}
 });
+var data=[];
+for (var i = tbl_data.length - 1; i >= 0; i--){
+
+	var row = Titanium.UI.createTableViewRow();
+
+	var flag =   Ti.UI.createImageView({
+		image : tbl_data[i].image,
+		left:"80%",
+		width:"20%",
+		height :'35dp',
+		top : '2dp',
+	});
+	
+
+	var country = Titanium.UI.createLabel({
+		text:tbl_data[i].title,
+		font:{fontSize:16,fontWeight:'bold'},
+		width:'auto',
+		textAlign:'left',
+		top:2,
+		left:40,
+		height:16
+	});
+	row.add(country);
+	row.add(flag);
+	data.push(row);
+};
 // alternatively, you could do
-table.setData(tbl_data);
+table.setData(data);
 view.add(table);
 	//
 	win.add(viewAjout);
