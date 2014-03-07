@@ -21,7 +21,7 @@ var consultation_mes_taches_win = ui.createWindow({
 		disableBounce : false,
 		layout : 'vertical',
 		top : 0 ,
-		backgroundImage : '/images/androidTitleBarBlack.png'
+		backgroundImage : '/images/Bannière-1-ilem-Group.png'
 	});
 	// ajouter la vue au windows
 	consultation_mes_taches_win.add(logoILEM_view);
@@ -40,7 +40,7 @@ var consultation_mes_taches_win = ui.createWindow({
  // Create a Button.
  var soumettree_boutton = Ti.UI.createButton({
      title : 'soumettre',
-    top : '30dp',
+    top : '5dp',
 		hight:'40dp'
  });
  // ajouter le boutton soumettre dans la vue 
@@ -53,9 +53,9 @@ var consultation_mes_taches_win = ui.createWindow({
   // Create a Button.
  var ajouter_tache_boutton = Ti.UI.createButton({
      title : 'nouvelle tache',
-    top : '10dp',
+    top : '-40dp',
 		hight:'40dp' ,
-		left : '65dp'
+		left : '85dp'
  });
  // ajouter le boutton nouvelle tache dans la vue 
  view.add(ajouter_tache_boutton);
@@ -64,31 +64,13 @@ var consultation_mes_taches_win = ui.createWindow({
      alert('\'nouvelle tache\' was clicked!');
  });
  //---------------------------------------------------------------------
-// Create a TextField.
-var rechercher_tache_boutton = Ti.UI.createTextField({
-	height : 35,
-	top : 10,
-	left : 40,
-	width : 240,
-	hintText : 'This is hint text',
-	softKeyboardOnFocus : Ti.UI.Android.SOFT_KEYBOARD_DEFAULT_ON_FOCUS, // Android only
-	keyboardType : Ti.UI.KEYBOARD_DEFAULT,
-	returnKeyType : Ti.UI.RETURNKEY_DEFAULT,
-	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED
-});
-view.add(rechercher_tache_boutton);
-// Listen for return events.
-aTextField.addEventListener('return', function(e) {
-	aTextField.blur();
-	alert('Input was: ' + aTextField.value);
-});
- //---------------------------------------------------------------------
+
  	//*********************************************************************
 	
 	consultation_mes_taches_win.add(view);
-	win.consultation_mes_taches_win=consultation_mes_taches_win;
-	Ti.include('/controllers/control_consultation_mes_taches.js');
-	var controller = createController(win.consultation_mes_taches_win);
+	consultation_mes_taches_win.consultation_mes_taches_win=consultation_mes_taches_win;
+	//Ti.include('/controllers/control_consultation_mes_taches.js');
+	//var controller = createController(win.consultation_mes_taches_win);
 	return consultation_mes_taches_win;
 };
 
