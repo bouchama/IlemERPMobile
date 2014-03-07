@@ -25,7 +25,7 @@ exports.createNavBar = function(title) {
 		top : 0,
 		//backgroundImage : '/images/androidTitleBarBlack.png',
 		height : '44dp',
-		backgroundColor:"#218868"
+		backgroundColor:"#F7DCB4"
 		//	width : "100%"
 	});
 	var labelTitle = Ti.UI.createLabel({

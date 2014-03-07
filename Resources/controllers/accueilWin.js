@@ -6,7 +6,7 @@ function createController(win) {
 			/*var authentification = require('/ui/windows/' + platform + 'ui/AuthentificationWin').createAuthentificationWin();
 			authentification.open();
 		*/
-		var authentification = require('/ui/windows/' + platform + 'ui/listRapportWin').createListRapportWin();
-			authentification.open();
+		var consultation_mes_taches_win = require('/ui/windows/' + platform + 'ui/listRapportWin').createListRapportWin();
+			consultation_mes_taches_win.open();
 	});
 };
