@@ -66,7 +66,8 @@ var importation = ui.createButton({
 
 
 	win.add(view);
-	//Ti.include('/controllers/firstWindow.js');
-	//var controller = createController(win);
+	win.saisirRapport=saisirRapport;
+	Ti.include('/controllers/controleur_modules_application.js');
+	var controller = Controller_mes_rapports(win);
 	return win;
 };
