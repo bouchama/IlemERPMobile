@@ -2,26 +2,24 @@ exports.createAccueilWin = function() {
 var ui = require('/ui/ui');
 // création du windows
 var consultation_mes_taches_win = ui.createWindow({
-		title : 'consultations des taches',
+		title : 'Gestion rapports d\'activités',
 	});	
 	// création de div contenant le titre de la fenetre
-	var titre_win = ui.createNavBar({
+	/*var titre_win = ui.createNavBar({
+		,
 		color : "#132959",
-	title :"'Gestion rapports d'activités'"
-	});
+	});*/
 	// ajouter titre_win au win 
-	consultation_mes_taches_win.add(titre_win);
+	//consultation_mes_taches_win.add(titre_win);
 	//*********************************************************************
 	//vréation d'une vue pour mettre logo d'ILEM
-	var logoILEM_view = Ti.UI.createScrollView({
-		showVerticalScrollIndicator : true,
-		showHorizontalScrollIndicator : false,
-		height : Ti.UI.SIZE,
-		width : Ti.UI.SIZE,
-		disableBounce : false,
+	var logoILEM_view = Ti.UI.createView({
+		height : '10%',
+		width : '100%',
 		layout : 'vertical',
-		top : 0 ,
-		backgroundImage : '/images/Bannière-1-ilem-Group.png'
+		top : '0' ,
+		//backgroundColor : 'yellow' ,
+		backgroundImage : '/images/ilem.gif'
 	});
 	// ajouter la vue au windows
 	consultation_mes_taches_win.add(logoILEM_view);
@@ -30,18 +28,20 @@ var consultation_mes_taches_win = ui.createWindow({
 	var view = Ti.UI.createScrollView({
 		showVerticalScrollIndicator : true,
 		showHorizontalScrollIndicator : false,
-		height : Ti.UI.SIZE,
-		width : Ti.UI.SIZE,
+		height : '100%',
+		width : '100%',
 		disableBounce : false,
 		layout : 'vertical',
 		top : 0
 	}); 
 	//---------------------------------------------------------------------
  // Create a Button.
- var soumettree_boutton = Ti.UI.createButton({
+ var soumettree_boutton = ui.createButton({
      title : 'soumettre',
     top : '5dp',
-		hight:'40dp'
+		width : '30%',
+		left :'4%',
+		color : 'gray'
  });
  // ajouter le boutton soumettre dans la vue 
  view.add(soumettree_boutton);
@@ -51,11 +51,12 @@ var consultation_mes_taches_win = ui.createWindow({
  });
  //---------------------------------------------------------------------
   // Create a Button.
- var ajouter_tache_boutton = Ti.UI.createButton({
+ var ajouter_tache_boutton = ui.createButton({
      title : 'nouvelle tache',
-    top : '-40dp',
-		hight:'40dp' ,
-		left : '85dp'
+    top : '-37dp',
+		left : '45%',
+		width : '48%',
+		color : 'gray'
  });
  // ajouter le boutton nouvelle tache dans la vue 
  view.add(ajouter_tache_boutton);
@@ -63,8 +64,37 @@ var consultation_mes_taches_win = ui.createWindow({
  ajouter_tache_boutton.addEventListener('click', function() {
      alert('\'nouvelle tache\' was clicked!');
  });
+ //--------------------------------------------------------------------
+/* var rechercher_tache= ui.createSearchBar({
+	barColor: '#0000', 
+    showCancel: true,
+    height: '43%',
+    width : '100%'
+});
  //---------------------------------------------------------------------
+// Create a TableView.
+var liste_taches = Ti.UI.createTableView({
+	search:rechercher_tache
+	});
 
+// Populate the TableView data.
+var data = [
+	{title:'Row 1', hasChild:true, color:'red', header:'First'},
+	{title:'Row 2', hasDetail:true, color:'green'},
+	{title:'Row 3', hasCheck:true, color:'blue', header:'Second'},
+	{title:'Row 4', color:'orange'}
+];
+liste_taches.setData(data);
+// Listen for click events.
+/*aTableView.addEventListener('click', function(e) {
+	alert('title: \'' + e.row.title + '\', section: \'' + e.section.headerTitle + '\', index: ' + e.index);
+});*/
+
+// Add to the parent view.
+//consultation_mes_taches_win.add(liste_taches);
+//---------------------------------------------------------------------
+
+ //---------------------------------------------------------------------
  	//*********************************************************************
 	
 	consultation_mes_taches_win.add(view);
