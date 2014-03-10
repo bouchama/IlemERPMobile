@@ -54,9 +54,9 @@ exports.createChoixWin = function() {
 	view.add(validerRapport);
 	view.add(noteFrais);
 	view.add(Synchronisation);
-
+win.saisirRapport=saisirRapport;
 	win.add(view);
-	//Ti.include('/controllers/firstWindow.js');
-	//var controller = createController(win);
+	Ti.include('/controllers/choixWin.js');
+	var controller = choixCreateController(win);
 	return win;
 }; 

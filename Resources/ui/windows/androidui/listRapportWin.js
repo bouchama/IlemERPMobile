@@ -45,9 +45,9 @@ exports.createListRapportWin = function() {
 	
 	// Create an ImageView.
 	var ajouter = Ti.UI.createImageView({
-		image : '/images/button.png',
+		image : '/images/add-icon.png',
 		left:"70%",
-		width:"25%",
+		width:"15%",
 		height :'35dp',
 		top : '-35dp',
 	});
@@ -92,6 +92,7 @@ var tbl_data = [
 // now assign that array to the table's data property to add those objects as rows
 var table = Titanium.UI.createTableView({
     data:tbl_data,
+    filterAttribute: 'filter',
     search:search,
     backgroundColor:"#FFDAB9",
     font : {
@@ -126,6 +127,7 @@ for (var i = tbl_data.length - 1; i >= 0; i--){
 	});
 	row.add(country);
 	row.add(flag);
+	row.filter=country.text;
 	data.push(row);
 };
 // alternatively, you could do
@@ -133,10 +135,11 @@ table.setData(data);
 view.add(table);
 	//
 	win.add(viewAjout);
+
 	win.add(view);
 	
-	//win.authentification=authentification;
-	//Ti.include('/controllers/accueilWin.js');
-	//var controller = createController(win);
+	win.ajouter=ajouter;
+	Ti.include('/controllers/listRapportWin.js');
+	var controller = createController(win);
 	return win;
 };

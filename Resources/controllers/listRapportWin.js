@@ -1,10 +1,10 @@
 function createController(win) {
 	var platform= Ti.Platform.osname;
 // Listen for click events.
-	win.authentification.addEventListener('click', function() {
+	win.ajouter.addEventListener('click', function() {
 		
-			var authentification = require('/ui/windows/' + platform + 'ui/AuthentificationWin').createAuthentificationWin();
-			authentification.open();
+			var ajoutTache = require('/ui/windows/' + platform + 'ui/ajoutTacheWin').createAjoutTacheWin();
+			ajoutTache.open();
 		/*
 		var authentification = require('/ui/windows/' + platform + 'ui/listRapportWin').createListRapportWin();
 			authentification.open();*/
